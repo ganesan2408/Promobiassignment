@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data class="NewsDataBinding">
+
+        <variable
+            name="news"
+            type="com.gansdroid.promobiassignment.data.local.entity.NewsEntity" />
+
+        <variable
+            name="handler"
+            type="com.gansdroid.promobiassignment.ui.controller.NewsClickHandler" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="?android:attr/selectableItemBackground"
+        android:onClick="@{(view) -> handler.onSaveClick(view, news)}"
+        android:orientation="horizontal"
+        android:padding="10dp">
+
+        <!--Photo Image android:src="@{news.photoUrl}" -->
+
+        <!--News Details-->
+
+        <ImageView
+            android:id="@+id/imageNews"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/ic_launcher_background"
+            android:contentDescription="@string/app_name"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10dp"
+            android:singleLine="true"
+            android:text="@{news.title}"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/imageNews"
+            tools:layout_editor_absoluteY="1dp" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10dp"
+            android:singleLine="true"
+            android:text="@{news.byline}"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/textView3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/imageNews"
+            app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="end"
+            android:paddingTop="10dp"
+            android:singleLine="true"
+            android:text="@{news.published_date}"
+            app:layout_constraintBottom_toBottomOf="@id/imageNews"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/imageNews" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

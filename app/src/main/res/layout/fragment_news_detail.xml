@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.activity.MainActivity">
+
+    <data class="NewsDetailsFragmentBinding">
+
+        <variable
+            name="news"
+            type="com.gansdroid.promobiassignment.data.local.entity.NewsEntity" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="?android:attr/selectableItemBackground"
+        android:orientation="vertical">
+
+        <!--Photo Image android:src="@{news.photoUrl}"-->
+        <ImageView
+            android:id="@+id/imageNewsDetail"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.45"
+            android:background="@drawable/ic_launcher_background" />
+
+        <!--News Details-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.55"
+            android:orientation="vertical"
+            android:padding="10dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{news.byline}"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                android:textStyle="bold|italic" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="@{news.title}"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:gravity="end"
+                android:text="@{news.published_date}" />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+</layout>
